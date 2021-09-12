@@ -1,0 +1,183 @@
+La société LOCACAR spécialisée dans la location de voiture possède un réseau d’une vingtaine d’agences réparties sur le territoire français.
+LOCACAR souhaite disposer d’un système d’information centralisé permettant de gérer l’ensemble des locations pour toute agence de son réseau ainsi que son parc de véhicules.
+Le système doit fournir les services suivants (la gestion comprend la création, la mise à jour et la suppression) :
+•	Gestion des agences et des véhicules.
+•	Gestion des locations.
+•	Consultation des disponibilités des véhicules.
+•	Calcul du chiffre d’affaire annuel.
+•	Production de diverses statistiques :
+o	Chiffre d’affaire par agence, par département.
+o	Nombre de location pour diverses durées.
+o	…etc.
+
+LOCACAR dispose d’un Centre d’appels au SRC (Service de Réservation Centrale). Un numéro vert unique (le même pour toutes les agences) est mis en place pour toutes demandes de location par téléphone, mais les clients peuvent également réserver directement auprès des agences ou en ligne sur le site internet de LOCACAR.
+Que la location soit réalisée par un opérateur ou directement sur internet par le client lui-même, un compte client est créé avant toute création d’une demande de location.
+
+Les données qui sont nécessaires à la demande de location sont :
+•	date de la demande de location,
+•	identifiant du client,
+•	catégorie du véhicule demandé,
+•	liste des options demandées,
+•	référence du véhicule attribué,
+•	date et heure de début de location,
+•	agence de départ,
+•	date et heure de fin de location,
+•	agence d’arrivée,
+•	état de la demande : initialisée, validée,  annulée.
+
+Une demande de location est créée avec le statut « initialisée ».
+Un opérateur traite la demande en effectuant les opérations suivantes :
+•	vérification de l’existence de véhicules disponibles à l’agence de départ aux dates indiquées, pour la catégorie de véhicule demandé avec les options indiqués.
+•	Affectation d’un véhicule à la demande de location avec éventuellement confirmation auprès du client que le véhicule attribué convient (il peut y avoir changement de catégorie et changement des options, par rapport à la demande initiale, en fonction des disponibilités de véhicules).
+•	Passage de la demande de location à « validée ».
+•	A tout moment une réservation peut être « annulée ».
+
+Le Service de Réservation Centrale (SRC) peut : 
+•	consulter les disponibilités des véhicules par agence ou par département,
+•	gérer les demandes de location (création, modification).
+•	Produire des statistiques par agence ou pour l’ensemble du groupe.
+
+
+Chaque agence a la possibilité de : 
+•	consulter les disponibilités de son parc de véhicules,
+•	gérer les demandes de location qui les concernent (en tant qu’agence de départ).
+•	Produire son chiffre d’affaires.
+•	Produire des statistiques limitées à son périmètre.
+
+Les clients enregistrés sur le site internet LOCACAR ont la possibilité de : 
+•	faire une demande de location,
+•	consulter ses demandes de location.
+•	consulter la liste des véhicules avec leurs options.
+
+Chaque véhicule est localisé à un instant T dans une agence et cette localisation évolue au gré des locations.
+
+Un véhicule appartient à l’une des catégories suivantes :
+1.	petit
+2.	moyen
+3.	grand
+4.	utilitaire
+5.	prestige
+6.	camping car
+
+Le tarif pour 1 heure de location dépend de la catégorie du véhicule et du nombre d’heures totale de la location :
+	Tarif à l’heure (en €)
+	durées
+Catégorie	Moins de 12h 	entre 12h et 24h	Plus de 24h
+1				4				3.5					3
+2				5				4.5					4
+3				7				6.5					6
+4				3				2.5					2
+5				15				14					13
+6				17				16					15
+Il est possible que d’autres catégories et d’autres tranches de durées soient ajoutées en fonction de l’évolution de la politique tarifaire.
+
+Les véhicules peuvent être équipés de diverses options, chaque option ayant un coût forfaitaire :
+•	Climatisation (10 €),
+•	GPS (7 €),
+•	pneus neige (23 €),
+•	lecteur video (5 €),
+•	minibar (15€)
+
+On ne s’occupera pas de la partie facturation, néanmoins le système devra comporter toutes les données utiles à l’établissement de la facture et au calcul du coût de chaque location.
+
+Eléments de volumétrie
+•	Une vingtaine d’agences réparties en France métropolitaine
+•	Une dizaine de véhicule par agence
+•	Deux gestionnaires par agence
+•	10 gestionnaires SRC
+•	Un taux d’occupation des véhicules d’environ 50% avec une pointe à 90% en période estivale.
+
+
+III.2 - SPECIFICATIONS POUR LE SITE INTERNET
+
+Le site internet constitue une application accessible par différents types d’utilisateurs, à savoir :
+
+Profil ANONYME : Il s’agit des utilisateurs non authentifiés qui peuvent accéder au site LOCACAR afin de :
+•	Consulter la liste des agences, faire une recherche par département,
+•	consulter les catégories de véhicules proposées ainsi que les options possibles,
+•	consulter les chambres avec leurs options,
+•	se créer un compte client.
+
+
+Profil CLIENT : il s’agit des utilisateurs qui possèdent un compte client et se sont authentifiés. Ils peuvent :
+•	effectuer les mêmes actions que les profils ANONYME,
+•	effectuer une demande de location en ligne,
+•	consulter ses demandes de location (en cours ou passées),
+•	annuler une location.
+
+
+Profil AGENCE : Il s’agit du personnel situé dans une agence. Ce profil peut :
+•	consulter les disponibilités des véhicules pour son agence,
+•	consulter la liste des locations pour son agence.
+•	enregistrer les clients qui font une demande de location par téléphone, 
+•	gérer des demandes de location.
+•	calculer le chiffre d’affaire de l’agence.
+
+
+Profil SRC : il s’agit du personnel du Service de Réservation Centrale. Ce profil peut : 
+•	consulter les disponibilités des véhicules pour toutes les agences,
+•	consulter la liste des locations pour toutes les agences.
+•	enregistrer les clients qui font une demande de location par téléphone, 
+•	gérer des demandes de location.
+•	calculer le chiffre d’affaire de chaque agence et du groupe.
+
+Profil ADMIN : il s’agit des administrateurs de l’application. Ce profil peut gérer l’ensemble des tables de la base de données :
+•	gérer les catégories de véhicules,
+•	gérer les tarifs,
+•	gérer l’ensemble des véhicules ainsi que leurs options,
+•	gérer les utilisateurs et leur profil,
+•	gérer les clients,
+•	gérer les agences,
+•	gérer  les demandes de location.
+•	consulter les disponibilités des véhicules,
+•	Calculer le chiffre d’affaire de chaque agence et du groupe, par année, par département.
+
+L’ensemble des interfaces devront être accessibles et responsives.
+
+																
+															
+
+
+dictionnaire de données
+
+agences, vehicule location locacars clients création mise a jours suppresson
+durée de location
+centre d'appel (SRC) numero vert unique revation directe ou site internet
+operateur, compte client
+date demande location, identificant client catgorie vehicule liste option demandée ref vehicule demandé date et heure debut et fin location, agence d'arrivée de départ.
+statut de la demande (ok ou non)
+confirmation de la demande ou changement de catégories
+validation demandes
+departement, statistiques, chiffre daffaire consultation des données par agences, sur internet pour consulter la disponibilités
+instant t dans une agencetarif vehicule dépend cat vehicule et durée
+options: climatisation mini-bare peneu neige lecteur vidéo, GPS
+20 agence 
+10 vehicule par agence
+gestionnaire (2)
+10 gestionnaires (SRC)
+compte cl’établissementprofile agence
+profile Srech
+profile admin
+CA par année par moi
+
+<MCD>
+entités:
+
+-agence
+    age_id int PK
+    age_ville  varchar(100)
+
+-vehicule
+    veh_id int PK
+	veh_immatriculation varchar(100)
+
+-client
+	cli_id int PK
+	cli_nom varchar(40)
+	cli_prenom varchar(40)
+	cli_adresse varchar(200)
+
+-locations
+    loc_id int PK
+	loc_debut datetime
+	loc_fin datetime

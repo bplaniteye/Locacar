@@ -1,0 +1,8 @@
+Implémenter la possibilité de s'abonner à un auteur :
+- Les messages des auteurs auxquels vous êtes abonnés 
+s'affichent dans votre "fil d'actualités" dans l'ordre chronologique inverse.
+- Modifier la base de données pour implémenter cette fonctionnalisté.
+-----------------------
+To do next :
+- pagination des messages : afficher les messages par 10 avec des liens vers des numéros de pages.
+- envoi du fil d'abonnement par mail.

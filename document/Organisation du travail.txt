@@ -1,0 +1,123 @@
+Ière PARTIE DU PROJET
+    A FAIRE : BACK OFFICE 
+        - Merise
+            Dictionnaire de données
+            MCD 
+            MLD
+        - Schéma de la BDD avec AnalyseSI
+        - Création de la base de données
+            Script de création de la BDD
+            Dataset : Jeu de données
+
+    DUREE DU PROJET ET GESTION DU TEMPS
+    Lundi       7H30
+    Mardi       7H30
+    Mercredi    5H00
+    Jeudi       5h30
+    Vendredi    3h30
+    Total       29h
+    15h15 validation par gilles
+    16h50 validation MLD
+    Jeudi 15:00 Dataset terminé
+
+IIème PARTIE DU PROJET (29/03 au 16/04/2021)
+
+    DUREE HEBDOMADAIRE REGLEMENTAIRE DU PROJET ET GESTION DU TEMPS
+    Lundi       9h-12h 13h-17h Total :  7h (- 7h le 05/04)
+    Mardi       9h-12h 13h-17h Total :  7h
+    Mercredi           14h-17h Total :  3h
+    Jeudi          14h30-16h30 Total :  2h
+    Vendredi    9h-12h 13h-15h Total :  5h
+                               Total : 24h  
+                        Durée totale :  (24 * 3) - 7 = 65
+
+Mercredi 31/03 : 
+15:03 BDD Fin Création - Dataset
+16:00 Fin réunion d'équipe et répartition des tâches
+
+1ère étape : Module accueil
+- Inscription 
+    (Module : accueil / Action : inscription) - Modou (Délai : Jeudi 01/04) Retard : Tâche OK le 
+    (Module : accueil / Vue : inscription) - Ange OK
+
+- Authentifcation - 
+    (Module : accueil / Action : authentifcation) - Nabi (Délai : Jeudi 01/04) OK
+    (Module : accueil / Vue : authentifcation) - Ange OK
+
+- Connexion des employés - Ange (Délai : Jeudi 01/04) OK
+    (Module : accueil / Action : connexion)
+
+- Page d'accueil - Ange - Fabrice (Délai : Jeudi 01/04) 
+    Consulter voitures, catégories, accessoires, agences : Ange (en cours)
+        (Module : accueil / Vue : index)
+    Style , ergonomie et aspect visuel : Ange (en cours)
+        (Bootstrap 5)
+    Recherche agences et départements : Fabrice (en cours)
+
+- Barre de navigation
+    Adapter l'affichage et les fonctionnalités en fonction des profils : Ange (OK le 06/04) 
+        (gabarit / inc_menu)
+
+2ème étape : Principales fonctionnalités de l'application
+    - Consulter les véhicules disponibles dans un agence donnée : Bandiougou
+    Recherche ajax sur les clients par les employés : Fabrice
+    Statistiques (requêtes) : tâche effectuée,en fonction du profil, par celui qui en est à charge
+    Faire des réservations : Ange
+    Accessibilté : Modou - Nabi - Bandiougou
+    Responsive : Ange - Fabrice
+
+3ème étape : Fonctionnalités des diffarents profils
+Profil Client : Nabi
+    - Modifier ses informations personnelles 
+        (Module : client / Action : edit)
+    - Faire une réservation 
+        (Module : location / Action : edit)      
+    - Consulter l'historique de ses réservations OK : 
+        (Module : client / Action : historique)
+    - Annuler ou modifier ses réservations        V
+        (Module : location / Action : edit)
+
+Profil Gestionnaire : Modou
+    - Consulter les disponibilités des véhicules pour son agence,
+	- Consulter la liste des locations pour son agence.
+	enregistrer les clients qui font une demande de location par téléphone,  
+	- Gérer des demandes de location (Module : location / Action : edit)
+	calculer le chiffre d’affaire de l’agence.
+
+Profil SRC : Bandiougou
+	- Consulter les disponibilités des véhicules pour toutes les agences,
+	- Consulter la liste des locations pour toutes les agences.
+	enregistrer les clients qui font une demande de location par téléphone, 
+	- Gérer des demandes de location.
+	calculer le chiffre d’affaire de chaque agence et du groupe.
+    
+Profil Admin : Ange - Fabrice
+	- Gérer les catégories de véhicules
+        (Module : categorie / Action : edit)
+	- Gérer les tarifs
+         (Module : tarification / Action : edit)
+	- Gérer l’ensemble des véhicules ainsi que leurs options
+         (Module : voiture / Action : edit)
+         (Module : accessoire / Action : edit)
+	- Gérer les employés
+         (Module : employe / Action : edit)
+	- Gérer les clients
+         (Module : client / Action : edit)
+	- Gérer les agences
+         (Module : agence / Action : edit)
+	- Gérer  les demandes de location   
+         (Module : location / Action : edit)  
+         
+           
+	-- Consulter les disponibilités des véhicules
+         (Module : location / Action : edit)
+	Calculer le chiffre d’affaire de chaque agence et du groupe, par année, par département
+         (Module : location / Action : edit)
+
+Gestion du dossier Locacr : Ange
+    Coordination des tâches 
+    Compilation des différentes tâches dans un dossier unique
+    Tests
+
+
+

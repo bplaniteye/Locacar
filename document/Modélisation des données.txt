@@ -1,0 +1,187 @@
+Dictionnaire de données
+- agence
+    villes ou départements
+- voiture
+    référence
+    accessoires (options)
+    catégories
+- location
+    date et heure de début
+    date et heure de fin
+    ville de départ
+    ville d'arrivée
+    statut
+    
+
+Règles de gestion
+    - Un client peut faire 0 ou plusieurs locations
+    - une voiture ne peut être louée par deux ou plusieurs clients en même temps
+    - Une voiture appartient à une seule catégorie
+    - Un client peut foruter une ou plusieurs accessoires, ou pas du tout 
+    - Une voiture ne peut être localisée que dans une seule agence
+    - L'agence d'arrivée est le lieu de disponibilité de la voiture
+    - Une agence est gérée par 2 gestionnaires
+    - Les gestionnaires ne gèrent que 1 et 1 seule agence
+    - Une location ne peut avoir que 1 seule tranche horaire
+    - Un utilisateur ne peut avoir que 1 seul profil
+    - Un utilisateur a un login unique
+
+<MCD>
+<entités>
+- agence
+    age_id int (PK)
+    age_ville  varchar(100)
+    age_departement varchar(100)
+
+- utilisateur
+	uti_id int (PK)
+	uti_nom varchar(100)
+	uti_prenom varchar(100)
+    uti_login varchar(100)
+    uti_mdp varchar(100)
+    uti_email varchar(100)
+    uti_telephone varchar(20)
+    uti_adresse varchar(100)
+	uti_profil varchar(100)
+
+- voiture
+    voi_id int (PK)
+	voi_immatriculation varchar(100)
+
+- categorie
+    cat_id int (PK)
+    cat_libelle varchar(100)
+
+- accessoire
+    acc_id int (PK)
+    acc_libelle varchar(100)
+    acc_prix float
+
+- location
+    loc_id int (PK)
+	loc_debut datetime
+	loc_fin datetime
+    loc_type varchar(100)
+    loc_statut varchar(100)
+    
+- tranche
+    tra_id int (PK)
+    tra_dureemin int
+    tra_dureemax int
+
+<associations>
+- gérer (profil gestionnaire)
+    utilisateur 1,1
+    agence 1,n
+    Un gestionnaire ne gère qu'une et une seule agence
+    Une agence est gérée par au maximum 2 gestionnaires
+
+- localisation
+    voiture 1,1
+    agence 0,n
+    Un voiture ne peut se trouver que dans une seule agence
+    Une agence peut obtenir 0 ou plusieurs voitures
+
+- souscrire
+    utilisateur 1,n
+    location 1,1
+    Un utilisateur peut faire 1 ou plusieurs locations
+    Une location est faite par 1 seul utilisateur
+
+- louer
+    location 1,1 
+    voiture 0,n
+    Une location ne concerne que 1 voiture
+    Une voiture peut faire l'objet de 0 ou plusieurs locations
+
+- départ
+    location 1,1
+    agence 1,n
+    Une voiture louée part de 1 et 1 seule agence 
+    Une agence peut faire partir 0 ou plusieurs voitures louées
+
+- arrivée
+    location 1,1
+    agence 1,n
+    Une voiture louée arrive dans dans 1 et 1 seule agence
+    Une agence peut voir arriver 0 ou plusieurs voitures louées
+
+- appartenir
+    voiture 1,1 
+    categorie 1,n 
+    Une voiture appartient à 1 seule catégorie
+    Une catégorie obtient 1 ou plusieurs voitures
+
+- forfait
+    location 0,n
+    accessoire 0,n
+    Une location peut se voir foruter 0 ou plusieurs accessoires
+    Une accessoire peut être forutée à 0 ou plusieurs locations
+
+- tarification (prix)
+    tranche 1,n
+    categorie 1,n 
+    Une tranche peut concerner 1 ou plusieurs catégories
+    Une catégorie peut avoir 1 ou plusieurs tranches horaires
+</MCD>
+
+<MLD>
+- agence
+    age_id int (PK)
+    age_ville  varchar(100)
+    age_departement varchar(100)
+
+- utilisateur
+	uti_id int (PK)
+	uti_nom varchar(100)
+	uti_prenom varchar(100)
+    uti_login varchar(100)
+    uti_mdp varchar(100)
+    uti_email varchar(100)
+    uti_telephone varchar(100)
+    uti_adresse varchar(100)
+	uti_profil varchar(100)
+    uti_agence (FK)
+
+- voiture
+    voi_id int (PK)
+	voi_immatriculation varchar(100)
+    voi_categorie (FK)
+    voi_localisation (FK)
+
+- categorie
+    cat_id int (PK)
+    cat_libelle varchar(100)
+
+- accessoire
+    acc_id int (PK)
+    acc_libelle varchar(100)
+    acc_forfait float
+
+- location
+    loc_id int (PK)
+	loc_debut datetime
+	loc_fin datetime
+    loc_type varchar(100)
+    loc_statut varchar(100)
+    loc_agencedepart (FK)
+    loc_agencearrivee (FK)
+    loc_utilisateur (FK)
+    loc_voiture (FK)
+
+- forfait
+    for_id (PK)
+    for_location (FK)
+    for0_accessoire (FK)
+
+- tranche
+    tra_id int (PK)
+    tra_dureemin int
+    tra_dureemax int    
+    
+- tarification
+    tar_id int (PK)
+    tar_categorie (FK)
+    tar_tranche (FK)
+    tar_prix float
+</MLD>
